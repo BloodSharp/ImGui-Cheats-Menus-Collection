@@ -1,0 +1,10 @@
+# Ignore all the builds folders
+
+.vs/
+Debug/
+x64/
+Release/
+Web/
+
+# Ignore precompiled files
+*.h.gch
