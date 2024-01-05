@@ -52,8 +52,10 @@ void IGCMC::Interfaces::Render()
 	{
 		if (gInterfacesLoaded[uiInterfaceIndex]->m_bIsThisMenuActive)
 		{
-			gInterfacesLoaded[uiInterfaceIndex]->Setup();
-			gInterfacesLoaded[uiInterfaceIndex]->Render(&gInterfacesLoaded[uiInterfaceIndex]->m_bIsThisMenuActive);
+			if (gInterfacesLoaded[uiInterfaceIndex]->Setup)
+				gInterfacesLoaded[uiInterfaceIndex]->Setup();
+			if (gInterfacesLoaded[uiInterfaceIndex]->Render)
+				gInterfacesLoaded[uiInterfaceIndex]->Render(&gInterfacesLoaded[uiInterfaceIndex]->m_bIsThisMenuActive);
 		}
 	}
 }

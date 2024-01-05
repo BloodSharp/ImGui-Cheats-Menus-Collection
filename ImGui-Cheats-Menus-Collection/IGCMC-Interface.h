@@ -6,8 +6,8 @@ typedef struct IGCMC_Interface_Menu_s
 {
 	bool m_bIsThisMenuActive;
 	const char* m_szMenuName;
-	void* Setup();
-	void* Render(bool* pbMustCloseThisMenu);
+	void(*Setup)();
+	void(*Render)(bool* pbMustCloseThisMenu);
 }IGCMC_Interface_Menu_t;
 
 namespace IGCMC
