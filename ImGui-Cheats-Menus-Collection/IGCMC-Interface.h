@@ -2,13 +2,33 @@
 
 #include "IGCMC-Precompiled.h"
 
-typedef struct IGCMC_Interface_Menu_s
+class IGCMC_Interface_Menu_t
 {
+public:
 	bool m_bIsThisMenuActive;
 	const char* m_szMenuName;
-	void(*Setup)();
+	void(*SetupInterface)();
+	void(*DestroyInterface)();
 	void(*Render)(bool* pbMustCloseThisMenu);
-}IGCMC_Interface_Menu_t;
+
+	IGCMC_Interface_Menu_t()
+	{
+		this->m_bIsThisMenuActive = false;
+		this->m_szMenuName = 0;
+		this->SetupInterface = 0;
+		this->DestroyInterface = 0;
+		this->Render = 0;
+	}
+
+	IGCMC_Interface_Menu_t(const char* szMenuName, decltype(Render) pRender = 0, decltype(SetupInterface) pSetup = 0, decltype(DestroyInterface) pDestroy = 0)
+	{
+		this->m_bIsThisMenuActive = false;
+		this->m_szMenuName = szMenuName;
+		this->SetupInterface = pSetup;
+		this->DestroyInterface = pDestroy;
+		this->Render = pRender;
+	}
+};
 
 namespace IGCMC
 {
