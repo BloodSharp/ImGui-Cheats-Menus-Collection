@@ -53,11 +53,30 @@ void IGCMC::Interfaces::Render()
 		if (gInterfacesLoaded[uiInterfaceIndex]->m_bIsThisMenuActive)
 		{
 			if (gInterfacesLoaded[uiInterfaceIndex]->SetupInterface)
-				gInterfacesLoaded[uiInterfaceIndex]->SetupInterface();
+				gInterfacesLoaded[uiInterfaceIndex]->SetupInterface(&gInterfacesLoaded[uiInterfaceIndex]->m_bIsInitialized);
 			if (gInterfacesLoaded[uiInterfaceIndex]->Render)
 				gInterfacesLoaded[uiInterfaceIndex]->Render(&gInterfacesLoaded[uiInterfaceIndex]->m_bIsThisMenuActive);
-			if (gInterfacesLoaded[uiInterfaceIndex]->DestroyInterface)
-				gInterfacesLoaded[uiInterfaceIndex]->DestroyInterface();
 		}
 	}
+}
+
+void IGCMC::Interfaces::ClearAllInterfaceData()
+{
+	for (size_t uiInterfaceIndex = 0; uiInterfaceIndex < gInterfacesLoaded.size(); uiInterfaceIndex++)
+	{
+		if (gInterfacesLoaded[uiInterfaceIndex])
+		{
+			if (gInterfacesLoaded[uiInterfaceIndex]->SetupInterface)
+				gInterfacesLoaded[uiInterfaceIndex]->SetupInterface = 0;
+			if (gInterfacesLoaded[uiInterfaceIndex]->Render)
+				gInterfacesLoaded[uiInterfaceIndex]->Render = 0;
+			if (gInterfacesLoaded[uiInterfaceIndex]->DestroyInterface)
+				gInterfacesLoaded[uiInterfaceIndex]->DestroyInterface(&gInterfacesLoaded[uiInterfaceIndex]->m_bIsInitialized);
+
+			delete gInterfacesLoaded[uiInterfaceIndex];
+			gInterfacesLoaded[uiInterfaceIndex] = 0;
+		}
+	}
+
+	gInterfacesLoaded.clear();
 }
