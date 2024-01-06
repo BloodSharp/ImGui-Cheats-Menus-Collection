@@ -12,7 +12,7 @@ namespace IGCMC
 			{
 				void Setup(bool* pbIsInitialized);
 				void Destroy(bool* pbIsInitialized);
-				void Render(bool* pbMustCloseThisMenu);
+				void Render(bool* pbMustOpenThisMenu);
 			}
 		}
 	}
