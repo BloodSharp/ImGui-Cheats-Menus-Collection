@@ -35,3 +35,4 @@
 #include "IGCMC-Aimware.h"
 #include "IGCMC-NeverLose.h"
 #include "IGCMC-Pivoborn.h"
+#include "IGCMC-HPPv6.h"
