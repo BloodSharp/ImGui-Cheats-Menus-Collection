@@ -83,7 +83,7 @@ endif
 CPPFLAGS += -I$(COMMON_DIR)
 #CPPFLAGS += -g
 CPPFLAGS += -Wall -Wformat -Os $(EMS)
-LDFLAGS += --shell-file $(IMGUI_DIR)/examples/libs/emscripten/shell_minimal.html $(EMS)
+LDFLAGS += --shell-file shell_minimal.html $(EMS)
 
 ##---------------------------------------------------------------------
 ## BUILD RULES
