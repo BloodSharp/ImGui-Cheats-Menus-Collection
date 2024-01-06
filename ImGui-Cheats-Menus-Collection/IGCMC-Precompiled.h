@@ -23,6 +23,12 @@
 #include <shellapi.h>
 #endif
 
+#if defined(_WIN32)
+#define BASE_FONT_DIR "C:\\Windows\\Fonts\\"
+#elif defined(__EMSCRIPTEN__)
+#define BASE_FONT_DIR "/FileSystem/Fonts/"
+#endif
+
 #include "IGCMC-ImageLoader.h"
 
 #include "IGCMC-Interface.h"
