@@ -113,6 +113,14 @@ int main(int, char**)
             IGCMC::Interfaces::Cheats::NeverLoseV2::Destroy,
             "https://corsair.wtf/topic/14610-neverpivo-v2-imgui-csgo-hack/"
         ));
+    IGCMC::Interfaces::AddInterfaceData(
+        new IGCMC_Interface_Menu_t(
+            "Pivoborn Hack",
+            &IGCMC::Interfaces::Cheats::Pivoborn::Render,
+            IGCMC::Interfaces::Cheats::Pivoborn::Setup,
+            IGCMC::Interfaces::Cheats::Pivoborn::Destroy,
+            "https://corsair.wtf/topic/13283-source-imgui-menu-pivoborn-hack/"
+        ));
 
     // Our state
     bool show_demo_window = true;

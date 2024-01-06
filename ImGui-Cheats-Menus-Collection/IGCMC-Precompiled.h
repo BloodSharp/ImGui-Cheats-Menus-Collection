@@ -34,3 +34,4 @@
 #include "IGCMC-Interface.h"
 #include "IGCMC-Aimware.h"
 #include "IGCMC-NeverLose.h"
+#include "IGCMC-Pivoborn.h"
