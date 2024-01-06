@@ -16,7 +16,10 @@ void IGCMC::Interfaces::Cheats::AimwareV5::Destroy(bool* pbIsInitialized)
 	}
 }
 
-void IGCMC::Interfaces::Cheats::AimwareV5::Render(bool* pbMustCloseThisMenu)
+void IGCMC::Interfaces::Cheats::AimwareV5::Render(bool* pbMustOpenThisMenu)
 {
+	if (*pbMustOpenThisMenu)
+	{
 
+	}
 }
