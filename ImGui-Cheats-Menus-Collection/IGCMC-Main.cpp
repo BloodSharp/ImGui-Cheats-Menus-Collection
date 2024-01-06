@@ -99,7 +99,7 @@ int main(int, char**)
     //IM_ASSERT(font != nullptr);
 
     IGCMC::Interfaces::AddInterfaceData(
-        new IGCMC_Interface_Menu_t("Aimware v5",
+        new IGCMC_Interface_Menu_t("Aimware v5 paste",
             &IGCMC::Interfaces::Cheats::AimwareV5::Render,
             IGCMC::Interfaces::Cheats::AimwareV5::Setup,
             IGCMC::Interfaces::Cheats::AimwareV5::Destroy,
