@@ -15,3 +15,11 @@ This repository just have a custom implementation from those several cheats menu
 - [NeverLose](https://neverlose.cc/)
     - [v2](https://forum.neverlose.cc/t/neverlose-v2-released/60636)
 - [Aimware](https://aimware.net/)
+
+## Original codes links
+
+- NEVERPIVO
+    - [Link to website](https://corsair.wtf/topic/14610-neverpivo-v2-imgui-csgo-hack/)
+    - Password: 123
+- Aimware V5
+    - [Link to website](https://corsair.wtf/topic/17511-imgui-menu/?do=findComment&comment=81320)
