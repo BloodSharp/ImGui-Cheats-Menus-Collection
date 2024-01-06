@@ -20,26 +20,31 @@ Password: 123
 #include "NeverLose/weapons.h"
 #include "NeverLose/world.h"
 
-ImFont* tolstiy = nullptr;
-ImFont* ne_takoi_tolstiy = nullptr;
-ImFont* ne_takoi_tolstiy2 = nullptr;
-GLuint r = 0;
-GLuint a = 0;
-GLuint l = 0;
-GLuint p = 0;
-GLuint w = 0;
-GLuint g = 0;
-GLuint wo = 0;
-GLuint v = 0;
-GLuint m = 0;
-GLuint i = 0;
-GLuint s = 0;
-GLuint c = 0;
-GLuint soufiww = 0;
+typedef struct NeverLose_Context_s
+{
+    ImFont* tolstiy = nullptr;
+    ImFont* ne_takoi_tolstiy = nullptr;
+    ImFont* ne_takoi_tolstiy2 = nullptr;
+    GLuint r = 0;
+    GLuint a = 0;
+    GLuint l = 0;
+    GLuint p = 0;
+    GLuint w = 0;
+    GLuint g = 0;
+    GLuint wo = 0;
+    GLuint v = 0;
+    GLuint m = 0;
+    GLuint i = 0;
+    GLuint s = 0;
+    GLuint c = 0;
+    GLuint soufiww = 0;
 
-int tabs = 0;
-float animspeed;
-bool customize = false;
+    int tabs = 0;
+    float animspeed = 0.3f;
+    bool customize = false;
+}NeverLose_Context_t;
+
+NeverLose_Context_t neverlose_context;
 
 void ImDrawList_AddCircleImageFilled(ImTextureID user_texture_id, const ImVec2& centre, float radius, ImU32 col, int num_segments)
 {
@@ -104,16 +109,16 @@ namespace ImGui
 
         float t = *v ? 1.0f : 0.0f;
 
-        if (customize == true)
+        if (neverlose_context.customize == true)
         {
         }
         else
         {
-            animspeed = 0.30f;
+            neverlose_context.animspeed = 0.30f;
         }
         if (g.LastActiveId == g.CurrentWindow->GetID(label))
         {
-            float t_anim = ImSaturate(g.LastActiveIdTimer / animspeed);
+            float t_anim = ImSaturate(g.LastActiveIdTimer / neverlose_context.animspeed);
             t = *v ? (t_anim) : (1.f - t_anim);
         }
 
@@ -135,7 +140,7 @@ namespace ImGui
 
         if (label_size.x > 0.0f)
         {
-            ImGui::PushFont(ne_takoi_tolstiy2);
+            ImGui::PushFont(neverlose_context.ne_takoi_tolstiy2);
             ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.f, 1.f, 1.f, 1.f));
             RenderText(ImVec2((p.x + width) - 35, (p.y + height) - 16), label);
             ImGui::PopStyleColor(1);
@@ -149,42 +154,36 @@ namespace ImGui
     }
 }
 
-#if defined(_WIN32)
-    #define BASE_FONT_DIR "C:\\Windows\\Fonts\\"
-#elif defined(__EMSCRIPTEN__)
-    #define BASE_FONT_DIR "/FileSystem/Fonts/"
-#endif
-
 void IGCMC::Interfaces::Cheats::NeverLoseV2::Setup(bool* pbIsInitialized)
 {
 	if (!*pbIsInitialized)
 	{
         ImGuiIO& io = ImGui::GetIO(); (void)io;
-        tolstiy = io.Fonts->AddFontFromFileTTF(BASE_FONT_DIR "ariblk.ttf", 40.0f);
-        ne_takoi_tolstiy = io.Fonts->AddFontFromFileTTF(BASE_FONT_DIR "arialbd.ttf", 13.0f);
-        ne_takoi_tolstiy2 = io.Fonts->AddFontFromFileTTF(BASE_FONT_DIR "arialbd.ttf", 15.0f);
+        neverlose_context.tolstiy = io.Fonts->AddFontFromFileTTF(BASE_FONT_DIR "ariblk.ttf", 40.0f);
+        neverlose_context.ne_takoi_tolstiy = io.Fonts->AddFontFromFileTTF(BASE_FONT_DIR "arialbd.ttf", 13.0f);
+        neverlose_context.ne_takoi_tolstiy2 = io.Fonts->AddFontFromFileTTF(BASE_FONT_DIR "arialbd.ttf", 15.0f);
 
         int width = 15, height = 15;
-        IGCMC::Utils::LoadTextureFromMemory(rage, sizeof(rage), &r, &width, &height);
-        IGCMC::Utils::LoadTextureFromMemory(antiaim, sizeof(antiaim), &a, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(rage, sizeof(rage), &neverlose_context.r, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(antiaim, sizeof(antiaim), &neverlose_context.a, &width, &height);
         width = 13;
-        IGCMC::Utils::LoadTextureFromMemory(legit, sizeof(legit), &l, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(legit, sizeof(legit), &neverlose_context.l, &width, &height);
         width = 15;
-        IGCMC::Utils::LoadTextureFromMemory(players, sizeof(players), &p, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(players, sizeof(players), &neverlose_context.p, &width, &height);
         height = 13;
-        IGCMC::Utils::LoadTextureFromMemory(weapons, sizeof(weapons), &w, &width, &height);
-        IGCMC::Utils::LoadTextureFromMemory(grenades, sizeof(grenades), &g, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(weapons, sizeof(weapons), &neverlose_context.w, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(grenades, sizeof(grenades), &neverlose_context.g, &width, &height);
         height = 15;
-        IGCMC::Utils::LoadTextureFromMemory(world, sizeof(world), &wo, &width, &height);
-        IGCMC::Utils::LoadTextureFromMemory(view, sizeof(view), &v, &width, &height);
-        IGCMC::Utils::LoadTextureFromMemory(mmain, sizeof(mmain), &m, &width, &height);
-        IGCMC::Utils::LoadTextureFromMemory(inventory, sizeof(inventory), &i, &width, &height);
-        IGCMC::Utils::LoadTextureFromMemory(scripts, sizeof(scripts), &s, &width, &height);
-        IGCMC::Utils::LoadTextureFromMemory(configs, sizeof(configs), &c, &width, &height);
-        IGCMC::Utils::LoadTextureFromMemory(soufiw, sizeof(soufiw), &soufiww, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(world, sizeof(world), &neverlose_context.wo, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(view, sizeof(view), &neverlose_context.v, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(mmain, sizeof(mmain), &neverlose_context.m, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(inventory, sizeof(inventory), &neverlose_context.i, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(scripts, sizeof(scripts), &neverlose_context.s, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(configs, sizeof(configs), &neverlose_context.c, &width, &height);
+        IGCMC::Utils::LoadTextureFromMemory(soufiw, sizeof(soufiw), &neverlose_context.soufiww, &width, &height);
 
-        *pbIsInitialized = tolstiy && ne_takoi_tolstiy && ne_takoi_tolstiy2 &&
-            r && a && l && p && w && g && wo && v && m && i && s && c && soufiww;
+        *pbIsInitialized = neverlose_context.tolstiy && neverlose_context.ne_takoi_tolstiy && neverlose_context.ne_takoi_tolstiy2 &&
+            neverlose_context.r && neverlose_context.a && neverlose_context.l && neverlose_context.p && neverlose_context.w && neverlose_context.g && neverlose_context.wo && neverlose_context.v && neverlose_context.m && neverlose_context.i && neverlose_context.s && neverlose_context.c && neverlose_context.soufiww;
 	}
 }
 
@@ -213,92 +212,92 @@ void Tabss()
     ImGui::PushStyleColor(ImGuiCol_Button, ImColor(35, 35, 45, 0).Value);
     ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImColor(63, 63, 60, 255).Value);
     ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImColor(63, 63, 60, 255).Value);
-    ImGui::PushFont(ne_takoi_tolstiy);
+    ImGui::PushFont(neverlose_context.ne_takoi_tolstiy);
     ImGui::SetCursorPos(ImVec2(12, 94));
     if (ImGui::Button("##rage", ImVec2(172, 31)))
-        tabs = 0;
+        neverlose_context.tabs = 0;
     ImGui::SetCursorPos(ImVec2(12, 130));
     if (ImGui::Button("##aa", ImVec2(172, 31)))
-        tabs = 1;
+        neverlose_context.tabs = 1;
     ImGui::SetCursorPos(ImVec2(12, 166));
     if (ImGui::Button("##legit", ImVec2(172, 31)))
-        tabs = 2;
+        neverlose_context.tabs = 2;
     ImGui::SetCursorPos(ImVec2(12, 234));
     if (ImGui::Button("##players", ImVec2(172, 31)))
-        tabs = 3;
+        neverlose_context.tabs = 3;
     ImGui::SetCursorPos(ImVec2(12, 270));
     if (ImGui::Button("##weapon", ImVec2(172, 31)))
-        tabs = 4;
+        neverlose_context.tabs = 4;
     ImGui::SetCursorPos(ImVec2(12, 306));
     if (ImGui::Button("##grenades", ImVec2(172, 31)))
-        tabs = 5;
+        neverlose_context.tabs = 5;
     ImGui::SetCursorPos(ImVec2(12, 342));
     if (ImGui::Button("##world", ImVec2(172, 31)))
-        tabs = 6;
+        neverlose_context.tabs = 6;
     ImGui::SetCursorPos(ImVec2(12, 378));
     if (ImGui::Button("##view", ImVec2(172, 31)))
-        tabs = 7;
+        neverlose_context.tabs = 7;
     ImGui::SetCursorPos(ImVec2(12, 433));
     if (ImGui::Button("##main", ImVec2(172, 31)))
-        tabs = 8;
+        neverlose_context.tabs = 8;
     ImGui::SetCursorPos(ImVec2(12, 469));
     if (ImGui::Button("##inventory", ImVec2(172, 31)))
-        tabs = 9;
+        neverlose_context.tabs = 9;
     ImGui::SetCursorPos(ImVec2(12, 505));
     if (ImGui::Button("##scripts", ImVec2(172, 31)))
-        tabs = 10;
+        neverlose_context.tabs = 10;
     ImGui::SetCursorPos(ImVec2(12, 541));
     if (ImGui::Button("##config", ImVec2(172, 31)))
-        tabs = 11;
+        neverlose_context.tabs = 11;
 
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 101), ImColor(255, 255, 255), "Ragebot");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 137), ImColor(255, 255, 255), "Anti Aim");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 173), ImColor(255, 255, 255), "Legitbot");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 241), ImColor(255, 255, 255), "Players");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 277), ImColor(255, 255, 255), "Weapon");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 313), ImColor(255, 255, 255), "Grenades");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 349), ImColor(255, 255, 255), "World");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 385), ImColor(255, 255, 255), "View");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 440), ImColor(255, 255, 255), "Main");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 476), ImColor(255, 255, 255), "Inventory");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 512), ImColor(255, 255, 255), "Scripts");
-    draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 548), ImColor(255, 255, 255), "Configs");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 101), ImColor(255, 255, 255), "Ragebot");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 137), ImColor(255, 255, 255), "Anti Aim");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 173), ImColor(255, 255, 255), "Legitbot");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 241), ImColor(255, 255, 255), "Players");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 277), ImColor(255, 255, 255), "Weapon");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 313), ImColor(255, 255, 255), "Grenades");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 349), ImColor(255, 255, 255), "World");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 385), ImColor(255, 255, 255), "View");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 440), ImColor(255, 255, 255), "Main");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 476), ImColor(255, 255, 255), "Inventory");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 512), ImColor(255, 255, 255), "Scripts");
+    draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 51, pos.y + 548), ImColor(255, 255, 255), "Configs");
 
     ImGui::SetCursorPos(ImVec2(25, 102));
-    ImGui::Image((void*)(intptr_t)r, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.r, ImVec2(15, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 138));
-    ImGui::Image((void*)(intptr_t)a, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.a, ImVec2(15, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 174));
-    ImGui::Image((void*)(intptr_t)l, ImVec2(13, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.l, ImVec2(13, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 242));
-    ImGui::Image((void*)(intptr_t)p, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.p, ImVec2(15, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 278));
-    ImGui::Image((void*)(intptr_t)w, ImVec2(15, 13));
+    ImGui::Image((void*)(intptr_t)neverlose_context.w, ImVec2(15, 13));
 
     ImGui::SetCursorPos(ImVec2(25, 314));
-    ImGui::Image((void*)(intptr_t)g, ImVec2(15, 13));
+    ImGui::Image((void*)(intptr_t)neverlose_context.g, ImVec2(15, 13));
 
     ImGui::SetCursorPos(ImVec2(25, 350));
-    ImGui::Image((void*)(intptr_t)wo, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.wo, ImVec2(15, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 386));
-    ImGui::Image((void*)(intptr_t)v, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.v, ImVec2(15, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 441));
-    ImGui::Image((void*)(intptr_t)m, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.m, ImVec2(15, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 477));
-    ImGui::Image((void*)(intptr_t)i, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.i, ImVec2(15, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 513));
-    ImGui::Image((void*)(intptr_t)s, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.s, ImVec2(15, 15));
 
     ImGui::SetCursorPos(ImVec2(25, 549));
-    ImGui::Image((void*)(intptr_t)c, ImVec2(15, 15));
+    ImGui::Image((void*)(intptr_t)neverlose_context.c, ImVec2(15, 15));
     ImGui::PopFont();
     ImGui::PopStyleColor(3);
 }
@@ -342,45 +341,45 @@ void IGCMC::Interfaces::Cheats::NeverLoseV2::Render(bool* pbMustOpenThisMenu)
             draw->AddRectFilled(ImVec2(pos.x + 190, pos.y + 0), ImVec2(pos.x + 807, pos.y + 657), ImColor(8, 8, 8), 8.f, ImDrawFlags_RoundCornersAll);
             draw->AddRectFilled(ImVec2(pos.x + 0, pos.y + 0), ImVec2(pos.x + 197, pos.y + 657), ImColor(8, 8, 8, 230), 10.f, ImDrawFlags_RoundCornersAll);
 
-            draw->AddText(tolstiy, 35.f, ImVec2(pos.x + 16, pos.y + 26), ImColor(65, 186, 217), "NEVERPIVO");
-            draw->AddText(tolstiy, 35.f, ImVec2(pos.x + 17, pos.y + 26), ImColor(255, 255, 255), "NEVERPIVO");
+            draw->AddText(neverlose_context.tolstiy, 35.f, ImVec2(pos.x + 16, pos.y + 26), ImColor(65, 186, 217), "NEVERPIVO");
+            draw->AddText(neverlose_context.tolstiy, 35.f, ImVec2(pos.x + 17, pos.y + 26), ImColor(255, 255, 255), "NEVERPIVO");
 
             draw->AddLine(ImVec2(pos.x + 0, pos.y + 593), ImVec2(pos.x + 190, pos.y + 594), ImColor(32, 32, 30));
             draw->AddLine(ImVec2(pos.x + 190, pos.y + 70), ImVec2(pos.x + 807, pos.y + 71), ImColor(32, 32, 30));
 
-            draw->AddText(ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 21, pos.y + 74), ImColor(55, 55, 55), "Aimbot");
-            draw->AddText(ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 21, pos.y + 214), ImColor(55, 55, 55), "Visuals");
-            draw->AddText(ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 21, pos.y + 412), ImColor(55, 55, 55), "Miscellaneous");
+            draw->AddText(neverlose_context.ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 21, pos.y + 74), ImColor(55, 55, 55), "Aimbot");
+            draw->AddText(neverlose_context.ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 21, pos.y + 214), ImColor(55, 55, 55), "Visuals");
+            draw->AddText(neverlose_context.ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 21, pos.y + 412), ImColor(55, 55, 55), "Miscellaneous");
 
             Tabss();
 
             ImGui::SetCursorPos(ImVec2(100, 100));
-            ImDrawList_AddCircleImageFilled((void*)(intptr_t)soufiww, ImVec2(pos.x + 39, pos.y + 626), 23.f, ImColor(255, 255, 255), 360);
-            draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 70, pos.y + 606), ImColor(255, 255, 255), "Putin");
-            draw->AddText(ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 70, pos.y + 630), ImColor(55, 55, 55), "Till:");
-            draw->AddText(ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 95, pos.y + 630), ImColor(22, 162, 240), "01.01.2100");
+            ImDrawList_AddCircleImageFilled((void*)(intptr_t)neverlose_context.soufiww, ImVec2(pos.x + 39, pos.y + 626), 23.f, ImColor(255, 255, 255), 360);
+            draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 70, pos.y + 606), ImColor(255, 255, 255), "Putin");
+            draw->AddText(neverlose_context.ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 70, pos.y + 630), ImColor(55, 55, 55), "Till:");
+            draw->AddText(neverlose_context.ne_takoi_tolstiy, 13.f, ImVec2(pos.x + 95, pos.y + 630), ImColor(22, 162, 240), "01.01.2100");
 
-            ImGui::PushFont(ne_takoi_tolstiy);
+            ImGui::PushFont(neverlose_context.ne_takoi_tolstiy);
             static bool te = false, te1 = false;
-            if (tabs == 0)
+            if (neverlose_context.tabs == 0)
             {
             }
 
-            if (tabs == 1)
+            if (neverlose_context.tabs == 1)
             {
             }
 
-            if (tabs == 2)
+            if (neverlose_context.tabs == 2)
             {
             }
 
-            if (tabs == 3)
+            if (neverlose_context.tabs == 3)
             {
                 //ESP
                 ImGui::BeginGroup();
                 draw->AddRectFilled(ImVec2(pos.x + 210, pos.y + 90), ImVec2(pos.x + 490, pos.y + 450), ImColor(13, 11, 16));
                 draw->AddLine(ImVec2(pos.x + 210, pos.y + 120), ImVec2(pos.x + 490, pos.y + 121), ImColor(32, 32, 30));
-                draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 218, pos.y + 98), ImColor(255, 255, 255), "ESP");
+                draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 218, pos.y + 98), ImColor(255, 255, 255), "ESP");
 
                 ImGui::SetCursorPos(ImVec2(230, 130));
                 ImGui::NeverLoseCheckbox("test", &te);
@@ -392,7 +391,7 @@ void IGCMC::Interfaces::Cheats::NeverLoseV2::Render(bool* pbMustOpenThisMenu)
                 ImGui::BeginGroup();
                 draw->AddRectFilled(ImVec2(pos.x + 506, pos.y + 90), ImVec2(pos.x + 786, pos.y + 450), ImColor(13, 11, 16));
                 draw->AddLine(ImVec2(pos.x + 506, pos.y + 120), ImVec2(pos.x + 786, pos.y + 121), ImColor(32, 32, 30));
-                draw->AddText(ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 516, pos.y + 98), ImColor(255, 255, 255), "Chams");
+                draw->AddText(neverlose_context.ne_takoi_tolstiy, 15.f, ImVec2(pos.x + 516, pos.y + 98), ImColor(255, 255, 255), "Chams");
 
                 ImGui::SetCursorPos(ImVec2(527, 130));
                 ImGui::NeverLoseCheckbox("test1", &te1);
@@ -402,35 +401,35 @@ void IGCMC::Interfaces::Cheats::NeverLoseV2::Render(bool* pbMustOpenThisMenu)
                 //
             }
 
-            if (tabs == 4)
+            if (neverlose_context.tabs == 4)
             {
             }
 
-            if (tabs == 5)
+            if (neverlose_context.tabs == 5)
             {
             }
 
-            if (tabs == 6)
+            if (neverlose_context.tabs == 6)
             {
             }
 
-            if (tabs == 7)
+            if (neverlose_context.tabs == 7)
             {
             }
 
-            if (tabs == 8)
+            if (neverlose_context.tabs == 8)
             {
             }
 
-            if (tabs == 9)
+            if (neverlose_context.tabs == 9)
             {
             }
 
-            if (tabs == 10)
+            if (neverlose_context.tabs == 10)
             {
             }
 
-            if (tabs == 11)
+            if (neverlose_context.tabs == 11)
             {
             }
             ImGui::PopFont();
