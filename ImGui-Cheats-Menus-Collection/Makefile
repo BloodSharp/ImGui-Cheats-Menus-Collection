@@ -106,6 +106,7 @@ $(WEB_DIR):
 	$(MKDIR_COMMAND) FileSystem
 	$(MKDIR_COMMAND) FileSystem$(SLASH_PATH)Fonts
 	$(COPY_COMMAND) $(FONTS_FOLDER)ariblk.ttf FileSystem$(SLASH_PATH)Fonts
+	$(COPY_COMMAND) $(FONTS_FOLDER)arial.ttf FileSystem$(SLASH_PATH)Fonts
 	$(COPY_COMMAND) $(FONTS_FOLDER)arialbd.ttf FileSystem$(SLASH_PATH)Fonts
 
 serve: all
