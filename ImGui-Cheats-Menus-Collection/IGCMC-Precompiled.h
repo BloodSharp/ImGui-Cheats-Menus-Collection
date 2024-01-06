@@ -19,6 +19,8 @@
 #include "../imgui/examples/libs/emscripten/emscripten_mainloop_stub.h"
 #endif
 
+#include "IGCMC-ImageLoader.h"
+
 #include "IGCMC-Interface.h"
 #include "IGCMC-Aimware.h"
 #include "IGCMC-NeverLose.h"
