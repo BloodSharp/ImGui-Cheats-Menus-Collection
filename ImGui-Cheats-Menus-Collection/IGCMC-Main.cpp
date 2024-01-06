@@ -102,7 +102,8 @@ int main(int, char**)
         new IGCMC_Interface_Menu_t("Aimware v5",
             &IGCMC::Interfaces::Cheats::AimwareV5::Render,
             IGCMC::Interfaces::Cheats::AimwareV5::Setup,
-            IGCMC::Interfaces::Cheats::AimwareV5::Destroy
+            IGCMC::Interfaces::Cheats::AimwareV5::Destroy,
+            "https://corsair.wtf/topic/17511-imgui-menu/?do=findComment&comment=81320"
         ));
     IGCMC::Interfaces::AddInterfaceData(
         new IGCMC_Interface_Menu_t(
