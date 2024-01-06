@@ -190,6 +190,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="IGCMC-Aimware.cpp" />
+    <ClCompile Include="IGCMC-ImageLoader.cpp" />
     <ClCompile Include="IGCMC-Interface.cpp" />
     <ClCompile Include="IGCMC-Main.cpp" />
     <ClCompile Include="IGCMC-Precompiled.cpp">
@@ -198,7 +199,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="IGMCC-NeverLose.cpp" />
+    <ClCompile Include="IGCMC-NeverLose.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\imgui\backends\imgui_impl_opengl3.h" />
@@ -210,6 +211,7 @@
     <ClInclude Include="..\imgui\imstb_textedit.h" />
     <ClInclude Include="..\imgui\imstb_truetype.h" />
     <ClInclude Include="IGCMC-Aimware.h" />
+    <ClInclude Include="IGCMC-ImageLoader.h" />
     <ClInclude Include="IGCMC-Interface.h" />
     <ClInclude Include="IGCMC-NeverLose.h" />
     <ClInclude Include="IGCMC-Precompiled.h" />

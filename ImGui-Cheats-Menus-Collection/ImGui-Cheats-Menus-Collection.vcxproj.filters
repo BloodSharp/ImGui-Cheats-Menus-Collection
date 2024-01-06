@@ -30,7 +30,7 @@
     <ClCompile Include="IGCMC-Aimware.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="IGMCC-NeverLose.cpp">
+    <ClCompile Include="IGCMC-NeverLose.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="..\imgui\backends\imgui_impl_opengl3.cpp">
@@ -55,6 +55,9 @@
       <Filter>Archivos de origen\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="IGCMC-Interface.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="IGCMC-ImageLoader.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -93,6 +96,9 @@
       <Filter>Archivos de encabezado\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="IGCMC-Interface.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="IGCMC-ImageLoader.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
