@@ -5,6 +5,10 @@ Debug/
 x64/
 Release/
 Web/
+FileSystem/
 
 # Ignore precompiled files
 *.h.gch
+
+# Ignore all the object files
+*.o
