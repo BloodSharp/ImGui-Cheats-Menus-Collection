@@ -64,20 +64,6 @@ int main(int, char**)
     SDL_GL_MakeCurrent(window, gl_context);
     SDL_GL_SetSwapInterval(1); // Enable vsync
 
-    IGCMC::Interfaces::AddInterfaceData(
-        new IGCMC_Interface_Menu_t("Aimware v5",
-            &IGCMC::Interfaces::Cheats::AimwareV5::Render,
-            IGCMC::Interfaces::Cheats::AimwareV5::Setup,
-            IGCMC::Interfaces::Cheats::AimwareV5::Destroy
-        ));
-    IGCMC::Interfaces::AddInterfaceData(
-        new IGCMC_Interface_Menu_t(
-            "NeverLose v2",
-            &IGCMC::Interfaces::Cheats::NeverLoseV2::Render,
-            IGCMC::Interfaces::Cheats::NeverLoseV2::Setup,
-            IGCMC::Interfaces::Cheats::NeverLoseV2::Destroy
-        ));
-
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -111,6 +97,21 @@ int main(int, char**)
     //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
     //ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
     //IM_ASSERT(font != nullptr);
+
+    IGCMC::Interfaces::AddInterfaceData(
+        new IGCMC_Interface_Menu_t("Aimware v5",
+            &IGCMC::Interfaces::Cheats::AimwareV5::Render,
+            IGCMC::Interfaces::Cheats::AimwareV5::Setup,
+            IGCMC::Interfaces::Cheats::AimwareV5::Destroy
+        ));
+    IGCMC::Interfaces::AddInterfaceData(
+        new IGCMC_Interface_Menu_t(
+            "NEVERPIVO",
+            &IGCMC::Interfaces::Cheats::NeverLoseV2::Render,
+            IGCMC::Interfaces::Cheats::NeverLoseV2::Setup,
+            IGCMC::Interfaces::Cheats::NeverLoseV2::Destroy,
+            "https://corsair.wtf/topic/14610-neverpivo-v2-imgui-csgo-hack/"
+        ));
 
     // Our state
     bool show_demo_window = true;
