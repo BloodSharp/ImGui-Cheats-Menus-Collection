@@ -73,11 +73,11 @@ void HppRenderScene(void* hDeviceContext)
 	//if (Game::IsConnected() && !IS_NULLPTR(g_pVisuals))
 		//g_pVisuals->Overlay();
 
-	//g_pMenu->DrawFadeBg(); <= TODO: Fix
+	g_pMenu->DrawFadeBg();
 	//g_pMenu->CursorState((void*)::WindowFromDC((HDC)hDeviceContext));
 	g_pMenu->Draw();
 
-	//g_pNotifications->Draw();
+	g_pNotifications->Draw();
 }
 
 void IGCMC::Interfaces::Cheats::HPPv6::Destroy(bool* pbIsInitialized)
