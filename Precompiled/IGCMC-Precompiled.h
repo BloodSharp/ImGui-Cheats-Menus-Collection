@@ -40,6 +40,7 @@
 #include "../ImGui-Cheats-Menus-Collection/IGCMC-Interface.h"
 #include "../ImGui-Cheats-Menus-Collection/IGCMC-Aimware.h"
 #include "../ImGui-Cheats-Menus-Collection/IGCMC-NeverLose.h"
+#include "../ImGui-Cheats-Menus-Collection/IGCMC-Pivoborn.h"
 #include "../ImGui-Cheats-Menus-Collection/IGCMC-HPPv6.h"
 
 // HPP v6 Assets

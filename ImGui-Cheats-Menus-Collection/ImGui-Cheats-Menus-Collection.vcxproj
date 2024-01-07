@@ -217,6 +217,7 @@
     <ClCompile Include="IGCMC-Interface.cpp" />
     <ClCompile Include="IGCMC-Main.cpp" />
     <ClCompile Include="IGCMC-NeverLose.cpp" />
+    <ClCompile Include="IGCMC-Pivoborn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\imgui\backends\imgui_impl_opengl3.h" />
@@ -258,6 +259,7 @@
     <ClInclude Include="IGCMC-ImageLoader.h" />
     <ClInclude Include="IGCMC-Interface.h" />
     <ClInclude Include="IGCMC-NeverLose.h" />
+    <ClInclude Include="IGCMC-Pivoborn.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

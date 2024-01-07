@@ -115,6 +115,14 @@ int main(int, char**)
         ));
     IGCMC::Interfaces::AddInterfaceData(
         new IGCMC_Interface_Menu_t(
+            "Pivoborn Hack",
+            &IGCMC::Interfaces::Cheats::Pivoborn::Render,
+            IGCMC::Interfaces::Cheats::Pivoborn::Setup,
+            IGCMC::Interfaces::Cheats::Pivoborn::Destroy,
+            "https://corsair.wtf/topic/13283-source-imgui-menu-pivoborn-hack/"
+        ));
+    IGCMC::Interfaces::AddInterfaceData(
+        new IGCMC_Interface_Menu_t(
             "HPPv6 leak",
             &IGCMC::Interfaces::Cheats::HPPv6::Render,
             IGCMC::Interfaces::Cheats::HPPv6::Setup,
