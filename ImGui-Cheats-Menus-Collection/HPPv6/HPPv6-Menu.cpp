@@ -591,17 +591,17 @@ void CMenu::Draw()
 			m_pGui->SetID("##legit_aimbot");
 			m_pGui->Checkbox(&cvars::weapons[current_weapon_id].aim_enabled, "Enabled");
 			m_pGui->Checkbox(&cvars::weapons[current_weapon_id].aim_auto_fire, "Automatic fire");
-			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_fov, "Maximum FOV", 0.f, 180.f, "%.1f�", 2.5f);
+			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_fov, "Maximum FOV", 0.f, 180.f, "%.1f°", 2.5f);
 			m_pGui->MultiCombo(cvars::weapons[current_weapon_id].aim_hitboxes, "Hitboxes", aim_hitboxes, IM_ARRAYSIZE(aim_hitboxes));
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_smooth_auto, "Smooth automatic", 0.f, 300.f, "%.1f", 2.5f);
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_smooth_in_attack, "Smooth in attack", 1.f, 300.f, "%.1f", 2.5f);
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_smooth_scale_fov, "Smooth scale - FOV", 0.f, 100.f, "%.0f%%", 1.f);
-			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_fov, "Recoil compensation maximum FOV", 0.f, 180.f, "%.1f�", 2.5f);
+			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_fov, "Recoil compensation maximum FOV", 0.f, 180.f, "%.1f°", 2.5f);
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_smooth, "Recoil compensation smooth", 1.f, 300.f, "%.1f", 2.5f);
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_pitch, "Recoil compensation pitch", 1.f, 100.f, "%.0f%%", 1.f, "Vertical.");
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_yaw, "Recoil compensation yaw", 1.f, 100.f, "%.0f%%", 1.f, "Horizontal.");
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_start, "Recoil compensation start", 0, 15, cvars::weapons[current_weapon_id].aim_recoil_start ? "%i bullet" : "if there is recoil");
-			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_psilent_angle, "Perfect silent maximum angle", 0.f, 1.f, "%.1f�", 1.f);
+			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_psilent_angle, "Perfect silent maximum angle", 0.f, 1.f, "%.1f°", 1.f);
 			m_pGui->Combo(&cvars::weapons[current_weapon_id].aim_psilent_type, "Perfect silent type", aim_psilent_type, IM_ARRAYSIZE(aim_psilent_type));
 			m_pGui->MultiCombo(cvars::weapons[current_weapon_id].aim_psilent_triggers, "Perfect silent triggers", aim_psilent_triggers, IM_ARRAYSIZE(aim_psilent_triggers));
 			m_pGui->Checkbox(&cvars::weapons[current_weapon_id].aim_psilent_tapping_mode, "Perfect silent tapping mode");
@@ -673,7 +673,7 @@ void CMenu::Draw()
 				m_pGui->Checkbox(&cvars::ragebot.active, "Enabled");
 				m_pGui->Checkbox(&cvars::ragebot.friendly_fire, "Friendly fire");
 				m_pGui->Checkbox(&cvars::ragebot.raim_auto_fire, "Automatic fire");
-				m_pGui->Slider(&cvars::ragebot.raim_fov, "Maximum FOV", 0.f, 180.f, "%.0f�", 1.f);
+				m_pGui->Slider(&cvars::ragebot.raim_fov, "Maximum FOV", 0.f, 180.f, "%.0f°", 1.f);
 				m_pGui->Combo(&cvars::ragebot.raim_type, "Aim type", raim_type, IM_ARRAYSIZE(raim_type));
 				m_pGui->Checkbox(&cvars::ragebot.raim_remove_recoil, "Remove recoil");
 				m_pGui->Combo(&cvars::ragebot.raim_remove_spread, "Remove spread", raim_remove_spread, IM_ARRAYSIZE(raim_remove_spread));
@@ -1362,7 +1362,7 @@ void CMenu::Draw()
 			m_pGui->Checkbox(&cvars::misc.kb_enabled, "Enabled");
 			m_pGui->Key(&cvars::misc.kb_key, "Key");
 			m_pGui->Checkbox(&cvars::misc.kb_friendly_fire, "Friendly fire");
-			m_pGui->Slider(&cvars::misc.kb_fov, "Maximum FOV", 0.f, 180.f, "%.0f�", 1.f);
+			m_pGui->Slider(&cvars::misc.kb_fov, "Maximum FOV", 0.f, 180.f, "%.0f°", 1.f);
 			m_pGui->Combo(&cvars::misc.kb_attack_type, "Attack type", kb_attack_type, IM_ARRAYSIZE(kb_attack_type));
 			m_pGui->Slider(&cvars::misc.kb_swing_distance, "Swing distance", 16.f, 64.f, "%.0f units", 1.f);
 			m_pGui->Slider(&cvars::misc.kb_stab_distance, "Stab distance", 16.f, 64.f, "%.0f units", 1.f);
