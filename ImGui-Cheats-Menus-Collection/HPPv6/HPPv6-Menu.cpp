@@ -707,7 +707,7 @@ void CMenu::Draw()
 				{
 				case RAGE_ANTIAIM_MAIN:
 				{
-					const char* aa_roll[] = { "None", "Sideways 50�", "Sideways 90�", "Sideways 180�", "Static" };
+					const char* aa_roll[] = { "None", "Sideways 50°", "Sideways 90°", "Sideways 180°", "Static" };
 					const char* aa_conditions[] = { "On knife", "On grenades", "On freeze period" };
 					const char* aa_at_targets[] = { "None", "Closest by FOV", "Average" };
 
@@ -716,7 +716,7 @@ void CMenu::Draw()
 					m_pGui->Checkbox(&cvars::ragebot.aa_teammates, "Teammates");
 					m_pGui->Combo(&cvars::ragebot.aa_at_targets, "At targets", aa_at_targets, IM_ARRAYSIZE(aa_at_targets));
 					m_pGui->Combo(&cvars::ragebot.aa_roll, "Roll", aa_roll, IM_ARRAYSIZE(aa_roll), "It works only on special servers. (Example: hvh.hpp.ovh:27015)");
-					m_pGui->Slider(&cvars::ragebot.aa_roll_static, "Roll static", -180.f, 180.f, "%.0f�", 1.f);
+					m_pGui->Slider(&cvars::ragebot.aa_roll_static, "Roll static", -180.f, 180.f, "%.0f°", 1.f);
 					m_pGui->MultiCombo(cvars::ragebot.aa_conditions, "Conditions", aa_conditions, IM_ARRAYSIZE(aa_conditions));
 					m_pGui->Checkbox(&cvars::ragebot.aa_untrusted_checks, "Untrusted checks", "Use only trusted angles.");
 					break;
