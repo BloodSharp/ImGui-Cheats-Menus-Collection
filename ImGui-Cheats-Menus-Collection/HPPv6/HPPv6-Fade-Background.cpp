@@ -1,6 +1,7 @@
 #include "IGCMC-Precompiled.h"
 
-constexpr auto FADE_BACKGROUND_MENU = 0.1;
+//constexpr auto FADE_BACKGROUND_MENU = 0.1;
+constexpr auto FADE_BACKGROUND_MENU = 0.1 * 1000.0;
 
 void CMenuFadeBg::Init()
 {
@@ -16,7 +17,7 @@ void CMenuFadeBg::Init()
 void CMenuFadeBg::Run()
 {
 	//const auto max_alpha = g_pGlobals->m_bIsInGame && g_Local->m_bIsConnected ? 0.00f : 0.50f;
-	const auto max_alpha = 0.00f;
+	const auto max_alpha = 0.50f * 1000.f;
 	const auto end_time = m_prevtime + FADE_BACKGROUND_MENU;
 
 	//if (m_active && client_state->time < end_time)
