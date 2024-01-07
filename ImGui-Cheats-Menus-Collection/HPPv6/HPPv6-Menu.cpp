@@ -247,6 +247,7 @@ void CMenu::DialogSettingsSaveAs(char* buf, size_t size)
 
 				name = HPPv6__Utils__FormatString("Error saving settings \"%s\".", buf);
 
+				/*
 				const auto error_code = GetLastError();
 
 				switch (error_code)
@@ -260,6 +261,8 @@ void CMenu::DialogSettingsSaveAs(char* buf, size_t size)
 				default:
 					message = "Could not create directory.";
 				}
+				*/
+				message = "Not supported for menus colection.";
 
 				g_pNotifications->Push(name, message);
 			}

@@ -29,6 +29,11 @@
 #include <shellapi.h>
 #endif
 
+#ifndef _WIN32
+#define RtlSecureZeroMemory(buffer, size) ::memset(buffer, 0, size)
+#define _strcmpi strcmp
+#endif
+
 #if defined(_WIN32)
 #define BASE_FONT_DIR "C:\\Windows\\Fonts\\"
 #elif defined(__EMSCRIPTEN__)

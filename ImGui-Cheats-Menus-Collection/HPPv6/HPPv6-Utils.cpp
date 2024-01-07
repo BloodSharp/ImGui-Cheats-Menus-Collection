@@ -6,7 +6,7 @@ std::string HPPv6__Utils__FormatString(const char* fmt, ...)
 
 	va_list args;
 	va_start(args, fmt);
-	vsprintf_s(buf, fmt, args);
+	vsprintf(buf, fmt, args);
 	va_end(args);
 
 	return buf;

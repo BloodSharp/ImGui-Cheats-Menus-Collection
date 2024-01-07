@@ -51,7 +51,7 @@ bool CMenuHotkeys::Is(std::string key)
 	{
 		char buf[256];
 
-		strcpy_s(buf, key.c_str());
+		strcpy(buf, key.c_str());
 
 		//Utils::StringReplace(buf, "+", ",");
 		//Utils::StringReplace(buf, " ", "");
