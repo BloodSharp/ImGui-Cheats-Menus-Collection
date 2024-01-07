@@ -6,6 +6,9 @@ This is a repository which contains several menus designed using ImGui inspired 
 
 This repository just have a custom implementation from those several cheats menus, but not the actual code.
 
+### Important
+There is an exception to the previous clarification, because HPP source code has been leaked several years ago, the code on this public repository is a portion of the original leaked code but updated to ImGui version 1.90, the original code uses ImGui version 1.63 meaning there are still several breaking changes and not everything is working right now.
+
 ## Credits
 
 - [Omar Cornut from ImGui](https://github.com/ocornut/imgui)
@@ -16,6 +19,8 @@ This repository just have a custom implementation from those several cheats menu
     - [v2](https://forum.neverlose.cc/t/neverlose-v2-released/60636)
 - [Aimware](https://aimware.net/)
     - [v5](https://aimware.net/forum/thread/127383)
+- [HPPv6](https://hpp.ovh/)
+    - The cheat source has been leaked to the public few years ago and the design was inspired from Aimware v4.
 
 ## Original codes links
 
