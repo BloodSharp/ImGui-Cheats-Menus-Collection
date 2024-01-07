@@ -15,6 +15,7 @@ This repository just have a custom implementation from those several cheats menu
 - [NeverLose](https://neverlose.cc/)
     - [v2](https://forum.neverlose.cc/t/neverlose-v2-released/60636)
 - [Aimware](https://aimware.net/)
+    - [v5](https://aimware.net/forum/thread/127383)
 
 ## Original codes links
 
