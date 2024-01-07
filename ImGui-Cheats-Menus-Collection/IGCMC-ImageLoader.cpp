@@ -39,6 +39,19 @@ bool IGCMC::Utils::LoadTextureFromFile(const char* filename, GLuint* out_texture
 }
 
 // Simple helper function to load an image into a OpenGL texture with common settings
+bool IGCMC::Utils::LoadTextureFromMemory(const unsigned char* buffer, int buffer_length, GLuint* out_texture, float* out_width, float* out_height)
+{
+    int i_out_width = (int)*out_width;
+    int i_out_height = (int)*out_height;
+    if (LoadTextureFromMemory(buffer, buffer_length, out_texture, &i_out_width, &i_out_height))
+    {
+        *out_width = (float)i_out_width;
+        *out_height = (float)i_out_height;
+        return true;
+    }
+    return false;
+}
+
 bool IGCMC::Utils::LoadTextureFromMemory(const unsigned char* buffer, int buffer_length, GLuint* out_texture, int* out_width, int* out_height)
 {
     // Load from file

@@ -76,9 +76,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDL2\SDL2-2.28.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDL2\SDL2-2.28.5\include;$(SolutionDir)Precompiled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>IGCMC-Precompiled.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -95,9 +96,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDL2\SDL2-2.28.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDL2\SDL2-2.28.5\include;$(SolutionDir)Precompiled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>IGCMC-Precompiled.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -114,9 +116,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDL2\SDL2-2.28.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDL2\SDL2-2.28.5\include;$(SolutionDir)Precompiled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>IGCMC-Precompiled.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,9 +136,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDL2\SDL2-2.28.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDL2\SDL2-2.28.5\include;$(SolutionDir)Precompiled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>IGCMC-Precompiled.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -189,17 +193,29 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="IGCMC-Aimware.cpp" />
-    <ClCompile Include="IGCMC-HPPv6.cpp" />
-    <ClCompile Include="IGCMC-ImageLoader.cpp" />
-    <ClCompile Include="IGCMC-Interface.cpp" />
-    <ClCompile Include="IGCMC-Main.cpp" />
-    <ClCompile Include="IGCMC-Precompiled.cpp">
+    <ClCompile Include="..\Precompiled\IGCMC-Precompiled.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Custom-ImGui.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Cvars.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Fade-Background.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Hotkeys.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Menu-Gui.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Menu-Settings-List.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Menu.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Modal.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Notifications.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Renderer.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Themes.cpp" />
+    <ClCompile Include="HPPv6\HPPv6-Utils.cpp" />
+    <ClCompile Include="IGCMC-Aimware.cpp" />
+    <ClCompile Include="IGCMC-HPPv6.cpp" />
+    <ClCompile Include="IGCMC-ImageLoader.cpp" />
+    <ClCompile Include="IGCMC-Interface.cpp" />
+    <ClCompile Include="IGCMC-Main.cpp" />
     <ClCompile Include="IGCMC-NeverLose.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -211,12 +227,37 @@
     <ClInclude Include="..\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\imgui\imstb_textedit.h" />
     <ClInclude Include="..\imgui\imstb_truetype.h" />
+    <ClInclude Include="..\Precompiled\IGCMC-Precompiled.h" />
+    <ClInclude Include="HPPv6\HPPv6-Custom-ImGui.h" />
+    <ClInclude Include="HPPv6\HPPv6-Cvars.h" />
+    <ClInclude Include="HPPv6\HPPv6-Fade-Background.h" />
+    <ClInclude Include="HPPv6\HPPv6-Hotkeys.h" />
+    <ClInclude Include="HPPv6\HPPv6-Menu-Gui.h" />
+    <ClInclude Include="HPPv6\HPPv6-Menu-Settings-List.h" />
+    <ClInclude Include="HPPv6\HPPv6-Menu.h" />
+    <ClInclude Include="HPPv6\HPPv6-Modal.h" />
+    <ClInclude Include="HPPv6\HPPv6-Notifications.h" />
+    <ClInclude Include="HPPv6\HPPv6-Renderer.h" />
+    <ClInclude Include="HPPv6\HPPv6-Themes.h" />
+    <ClInclude Include="HPPv6\HPPv6-Utils.h" />
+    <ClInclude Include="HPPv6\images\menu\background_title.h" />
+    <ClInclude Include="HPPv6\images\menu\tab_configs_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\tab_console_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\tab_kreedz_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\tab_legit_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\tab_misc_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\tab_rage_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\tab_visuals_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\wpn_pistols_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\wpn_rifles_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\wpn_shotguns_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\wpn_smgs_icon.h" />
+    <ClInclude Include="HPPv6\images\menu\wpn_snipers_icon.h" />
     <ClInclude Include="IGCMC-Aimware.h" />
     <ClInclude Include="IGCMC-HPPv6.h" />
     <ClInclude Include="IGCMC-ImageLoader.h" />
     <ClInclude Include="IGCMC-Interface.h" />
     <ClInclude Include="IGCMC-NeverLose.h" />
-    <ClInclude Include="IGCMC-Precompiled.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

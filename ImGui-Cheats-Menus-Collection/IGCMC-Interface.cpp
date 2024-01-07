@@ -38,7 +38,7 @@ void IGCMC::Interfaces::RemoveInterfaceData(IGCMC_Interface_Menu_t* pInterfaceMe
 	}
 }
 
-void OpenLink(const char* szWebsite)
+void IGCMC::Interfaces::OpenLink(const char* szWebsite)
 {
 #if defined(_WIN32)
 	ShellExecuteA(0, "open", szWebsite, NULL, NULL, SW_SHOWNORMAL);

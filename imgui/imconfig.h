@@ -99,6 +99,23 @@
         constexpr ImVec4(const MyVec4& f) : x(f.x), y(f.y), z(f.z), w(f.w) {}   \
         operator MyVec4() const { return MyVec4(x,y,z,w); }
 */
+#define IM_VEC2_CLASS_EXTRA \
+        ImVec2(float v) { x = v; y = v; }
+
+#define IM_VEC4_CLASS_EXTRA \
+    inline ImVec4 operator+(const ImVec4& rhs) { return ImVec4(x + rhs.x, y + rhs.y, z + rhs.z, w + rhs.w); } \
+    inline ImVec4 operator-(const ImVec4& rhs) { return ImVec4(x - rhs.x, y - rhs.y, z - rhs.z, w - rhs.w); } \
+    inline ImVec4 operator*(const ImVec4& rhs) { return ImVec4(x * rhs.x, y * rhs.y, z * rhs.z, w * rhs.w); } \
+    inline ImVec4 operator/(const ImVec4& rhs) { return ImVec4(x * rhs.x, y * rhs.y, z * rhs.z, w * rhs.w); } \
+    inline ImVec4 operator+(const float& rhs) { return ImVec4(x + rhs, y + rhs, z + rhs, w + rhs); } \
+    inline ImVec4 operator-(const float& rhs) { return ImVec4(x - rhs, y - rhs, z - rhs, w - rhs); } \
+    inline ImVec4 operator*(const float& rhs) { return ImVec4(x * rhs, y * rhs, z * rhs, w * rhs); } \
+    inline ImVec4 operator/(const float& rhs) { return ImVec4(x / rhs, y / rhs, z / rhs, w / rhs); }
+/*
+    static inline ImVec4 operator/(const ImVec4& rhs) { return ImVec4(x / rhs.x, y / rhs.y, z / rhs.z, w / rhs.w); } \
+*/
+
+
 //---- ...Or use Dear ImGui's own very basic math operators.
 #define IMGUI_DEFINE_MATH_OPERATORS
 
@@ -106,7 +123,7 @@
 // Your renderer backend will need to support it (most example renderer backends support both 16/32-bit indices).
 // Another way to allow large meshes while keeping 16-bit indices is to handle ImDrawCmd::VtxOffset in your renderer.
 // Read about ImGuiBackendFlags_RendererHasVtxOffset for details.
-//#define ImDrawIdx unsigned int
+#define ImDrawIdx unsigned int
 
 //---- Override ImDrawCallback signature (will need to modify renderer backends accordingly)
 //struct ImDrawList;

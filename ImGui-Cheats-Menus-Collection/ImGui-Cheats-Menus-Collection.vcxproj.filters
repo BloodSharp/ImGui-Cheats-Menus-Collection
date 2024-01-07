@@ -19,12 +19,27 @@
     <Filter Include="Archivos de origen\ImGui">
       <UniqueIdentifier>{301eb120-8709-423c-a704-54e39f3ebe77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\HPPv6">
+      <UniqueIdentifier>{635c12b3-1eb1-4c88-a922-472845c68512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\HPPv6">
+      <UniqueIdentifier>{a2ce2293-e51e-4f8e-8925-14d12b83f676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Precompiled">
+      <UniqueIdentifier>{2f47b2bb-34b2-4850-99fa-876d92246ee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Precompiled">
+      <UniqueIdentifier>{019f89da-2032-412a-a858-1c30e722e276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\HPPv6\Images">
+      <UniqueIdentifier>{371d7fb4-10bd-443d-88d5-cf9b02899925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\HPPv6\Images\Menu">
+      <UniqueIdentifier>{428743f4-8d38-48de-a765-f4fd3fbfa47b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IGCMC-Main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="IGCMC-Precompiled.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="IGCMC-Aimware.cpp">
@@ -63,11 +78,47 @@
     <ClCompile Include="IGCMC-HPPv6.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="..\Precompiled\IGCMC-Precompiled.cpp">
+      <Filter>Archivos de origen\Precompiled</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Menu.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Modal.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Hotkeys.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Menu-Settings-List.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Fade-Background.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Themes.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Renderer.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Custom-ImGui.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Menu-Gui.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Utils.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Notifications.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
+    <ClCompile Include="HPPv6\HPPv6-Cvars.cpp">
+      <Filter>Archivos de origen\HPPv6</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IGCMC-Precompiled.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="IGCMC-Aimware.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -106,6 +157,84 @@
     </ClInclude>
     <ClInclude Include="IGCMC-HPPv6.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Precompiled\IGCMC-Precompiled.h">
+      <Filter>Archivos de encabezado\Precompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Menu.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Modal.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Menu-Gui.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Hotkeys.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Menu-Settings-List.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Fade-Background.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Themes.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Renderer.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Custom-ImGui.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\background_title.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\tab_configs_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\tab_console_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\tab_kreedz_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\tab_legit_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\tab_misc_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\tab_rage_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\tab_visuals_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\wpn_pistols_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\wpn_rifles_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\wpn_shotguns_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\wpn_smgs_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\images\menu\wpn_snipers_icon.h">
+      <Filter>Archivos de encabezado\HPPv6\Images\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Utils.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Notifications.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
+    </ClInclude>
+    <ClInclude Include="HPPv6\HPPv6-Cvars.h">
+      <Filter>Archivos de encabezado\HPPv6</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

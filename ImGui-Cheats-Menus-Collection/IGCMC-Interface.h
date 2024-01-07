@@ -43,6 +43,7 @@ namespace IGCMC
 		void AddInterfaceData(IGCMC_Interface_Menu_t* pInterfaceMenu);
 		void RemoveInterfaceData(IGCMC_Interface_Menu_t* pInterfaceMenu);
 		void Render();
+		void OpenLink(const char* szWebsite);
 		void ClearAllInterfaceData();
 	}
 }
