@@ -39,6 +39,21 @@ SOURCES = IGCMC-Main.cpp IGCMC-Interface.cpp IGCMC-ImageLoader.cpp
 SOURCES += IGCMC-Aimware.cpp
 SOURCES += IGCMC-NeverLose.cpp
 SOURCES += IGCMC-Pivoborn.cpp
+SOURCES += IGCMC-HPPv6.cpp
+
+# HPPv6 dependencies
+SOURCES += HPPv6/HPPv6-Custom-ImGui.cpp
+SOURCES += HPPv6/HPPv6-Cvars.cpp
+SOURCES += HPPv6/HPPv6-Fade-Background.cpp
+SOURCES += HPPv6/HPPv6-Hotkeys.cpp
+SOURCES += HPPv6/HPPv6-Menu-Gui.cpp
+SOURCES += HPPv6/HPPv6-Menu-Settings-List.cpp
+SOURCES += HPPv6/HPPv6-Menu.cpp
+SOURCES += HPPv6/HPPv6-Modal.cpp
+SOURCES += HPPv6/HPPv6-Notifications.cpp
+SOURCES += HPPv6/HPPv6-Renderer.cpp
+SOURCES += HPPv6/HPPv6-Themes.cpp
+SOURCES += HPPv6/HPPv6-Utils.cpp
 
 SOURCES += $(IMGUI_DIR)/imgui.cpp $(IMGUI_DIR)/imgui_demo.cpp $(IMGUI_DIR)/imgui_draw.cpp $(IMGUI_DIR)/imgui_tables.cpp $(IMGUI_DIR)/imgui_widgets.cpp
 SOURCES += $(IMGUI_DIR)/backends/imgui_impl_sdl2.cpp $(IMGUI_DIR)/backends/imgui_impl_opengl3.cpp
@@ -91,6 +106,9 @@ LDFLAGS += --shell-file shell_minimal.html $(EMS)
 ##---------------------------------------------------------------------
 
 %.o:%.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_PATHS) -c -o $@ $<
+
+%.o:HPPv6/%.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(INCLUDE_PATHS) -c -o $@ $<
 
 %.o:$(IMGUI_DIR)/%.cpp
