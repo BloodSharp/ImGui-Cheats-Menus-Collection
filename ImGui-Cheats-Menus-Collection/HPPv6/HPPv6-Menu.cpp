@@ -6,7 +6,7 @@ CMenu::CMenu()
 	, m_pHotkeys(std::make_unique<CMenuHotkeys>())
 	, m_pSettingsList(std::make_unique<CMenuSettingsList>())
 	, m_pFadeBg(std::make_unique<CMenuFadeBg>())
-	, m_pThemes(std::make_unique<CMenuThemes>())
+	//, m_pThemes(std::make_unique<CMenuThemes>())
 	, m_bIsOpened(true)
 {
 	this->m_iHoveredTab = 0;
@@ -588,17 +588,17 @@ void CMenu::Draw()
 			m_pGui->SetID("##legit_aimbot");
 			m_pGui->Checkbox(&cvars::weapons[current_weapon_id].aim_enabled, "Enabled");
 			m_pGui->Checkbox(&cvars::weapons[current_weapon_id].aim_auto_fire, "Automatic fire");
-			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_fov, "Maximum FOV", 0.f, 180.f, "%.1f°", 2.5f);
+			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_fov, "Maximum FOV", 0.f, 180.f, "%.1fï¿½", 2.5f);
 			m_pGui->MultiCombo(cvars::weapons[current_weapon_id].aim_hitboxes, "Hitboxes", aim_hitboxes, IM_ARRAYSIZE(aim_hitboxes));
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_smooth_auto, "Smooth automatic", 0.f, 300.f, "%.1f", 2.5f);
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_smooth_in_attack, "Smooth in attack", 1.f, 300.f, "%.1f", 2.5f);
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_smooth_scale_fov, "Smooth scale - FOV", 0.f, 100.f, "%.0f%%", 1.f);
-			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_fov, "Recoil compensation maximum FOV", 0.f, 180.f, "%.1f°", 2.5f);
+			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_fov, "Recoil compensation maximum FOV", 0.f, 180.f, "%.1fï¿½", 2.5f);
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_smooth, "Recoil compensation smooth", 1.f, 300.f, "%.1f", 2.5f);
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_pitch, "Recoil compensation pitch", 1.f, 100.f, "%.0f%%", 1.f, "Vertical.");
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_yaw, "Recoil compensation yaw", 1.f, 100.f, "%.0f%%", 1.f, "Horizontal.");
 			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_recoil_start, "Recoil compensation start", 0, 15, cvars::weapons[current_weapon_id].aim_recoil_start ? "%i bullet" : "if there is recoil");
-			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_psilent_angle, "Perfect silent maximum angle", 0.f, 1.f, "%.1f°", 1.f);
+			m_pGui->Slider(&cvars::weapons[current_weapon_id].aim_psilent_angle, "Perfect silent maximum angle", 0.f, 1.f, "%.1fï¿½", 1.f);
 			m_pGui->Combo(&cvars::weapons[current_weapon_id].aim_psilent_type, "Perfect silent type", aim_psilent_type, IM_ARRAYSIZE(aim_psilent_type));
 			m_pGui->MultiCombo(cvars::weapons[current_weapon_id].aim_psilent_triggers, "Perfect silent triggers", aim_psilent_triggers, IM_ARRAYSIZE(aim_psilent_triggers));
 			m_pGui->Checkbox(&cvars::weapons[current_weapon_id].aim_psilent_tapping_mode, "Perfect silent tapping mode");
@@ -658,7 +658,7 @@ void CMenu::Draw()
 				const char* raim_type[] = { "Visible", "Silent (Client-Side)", "Perfect silent (Server-Side)" };
 				const char* raim_auto_scope[] = { "None", "No unzoom", "Unzoom" };
 				const char* raim_remove_spread[] = { "None", "Pitch / Yaw", "Pitch / Roll", "Pitch / Yaw / Roll" };
-				const char* raim_resolver_pitch[] = { "None", "Breakpoint 90°" };
+				const char* raim_resolver_pitch[] = { "None", "Breakpoint 90ï¿½" };
 				const char* raim_resolver_yaw[] = { "None", "Desyns bruteforce" };
 				const char* raim_delayshot[] = { "Unlag", "History" };
 				const char* raim_fps_mitigations[] = { "Traces only if can attack", "Don't trace arms points", "Don't trace legs points" };
@@ -670,7 +670,7 @@ void CMenu::Draw()
 				m_pGui->Checkbox(&cvars::ragebot.active, "Enabled");
 				m_pGui->Checkbox(&cvars::ragebot.friendly_fire, "Friendly fire");
 				m_pGui->Checkbox(&cvars::ragebot.raim_auto_fire, "Automatic fire");
-				m_pGui->Slider(&cvars::ragebot.raim_fov, "Maximum FOV", 0.f, 180.f, "%.0f°", 1.f);
+				m_pGui->Slider(&cvars::ragebot.raim_fov, "Maximum FOV", 0.f, 180.f, "%.0fï¿½", 1.f);
 				m_pGui->Combo(&cvars::ragebot.raim_type, "Aim type", raim_type, IM_ARRAYSIZE(raim_type));
 				m_pGui->Checkbox(&cvars::ragebot.raim_remove_recoil, "Remove recoil");
 				m_pGui->Combo(&cvars::ragebot.raim_remove_spread, "Remove spread", raim_remove_spread, IM_ARRAYSIZE(raim_remove_spread));
@@ -704,7 +704,7 @@ void CMenu::Draw()
 				{
 				case RAGE_ANTIAIM_MAIN:
 				{
-					const char* aa_roll[] = { "None", "Sideways 50°", "Sideways 90°", "Sideways 180°", "Static" };
+					const char* aa_roll[] = { "None", "Sideways 50ï¿½", "Sideways 90ï¿½", "Sideways 180ï¿½", "Static" };
 					const char* aa_conditions[] = { "On knife", "On grenades", "On freeze period" };
 					const char* aa_at_targets[] = { "None", "Closest by FOV", "Average" };
 
@@ -713,7 +713,7 @@ void CMenu::Draw()
 					m_pGui->Checkbox(&cvars::ragebot.aa_teammates, "Teammates");
 					m_pGui->Combo(&cvars::ragebot.aa_at_targets, "At targets", aa_at_targets, IM_ARRAYSIZE(aa_at_targets));
 					m_pGui->Combo(&cvars::ragebot.aa_roll, "Roll", aa_roll, IM_ARRAYSIZE(aa_roll), "It works only on special servers. (Example: hvh.hpp.ovh:27015)");
-					m_pGui->Slider(&cvars::ragebot.aa_roll_static, "Roll static", -180.f, 180.f, "%.0f°", 1.f);
+					m_pGui->Slider(&cvars::ragebot.aa_roll_static, "Roll static", -180.f, 180.f, "%.0fï¿½", 1.f);
 					m_pGui->MultiCombo(cvars::ragebot.aa_conditions, "Conditions", aa_conditions, IM_ARRAYSIZE(aa_conditions));
 					m_pGui->Checkbox(&cvars::ragebot.aa_untrusted_checks, "Untrusted checks", "Use only trusted angles.");
 					break;
@@ -722,13 +722,13 @@ void CMenu::Draw()
 				{
 					const char* aa_side[] = { "Left", "Right" };
 					const char* aa_stand_pitch[] = { "None", "Down", "Up", "Fake down", "Fake up", "Jitter", "Fake jitter" };
-					const char* aa_stand_yaw[] = { "None", "Backwards", "Sideways 90°", "Sideways 140°", "Static", "Local view", "Backwards desyns", };
+					const char* aa_stand_yaw[] = { "None", "Backwards", "Sideways 90ï¿½", "Sideways 140ï¿½", "Static", "Local view", "Backwards desyns", };
 					const char* aa_stand_desync[] = { "None", "Default", "Max delta" };
 
 					m_pGui->SetID("##rage_antiaim_stand");
 					m_pGui->Combo(&cvars::ragebot.aa_stand_pitch, "Pitch", aa_stand_pitch, IM_ARRAYSIZE(aa_stand_pitch));
 					m_pGui->Combo(&cvars::ragebot.aa_stand_yaw, "Yaw", aa_stand_yaw, IM_ARRAYSIZE(aa_stand_yaw));
-					m_pGui->Slider(&cvars::ragebot.aa_stand_yaw_static, "Yaw static", -180.f, 180.f, "%.0f°", 1.f);
+					m_pGui->Slider(&cvars::ragebot.aa_stand_yaw_static, "Yaw static", -180.f, 180.f, "%.0fï¿½", 1.f);
 					m_pGui->Combo(&cvars::ragebot.aa_stand_desync, "Desync", aa_stand_desync, IM_ARRAYSIZE(aa_stand_desync));
 					m_pGui->Checkbox(&cvars::ragebot.aa_stand_desync_helper, "Desync helper");
 					m_pGui->Combo(&cvars::ragebot.aa_side, "Side", aa_side, IM_ARRAYSIZE(aa_side));
@@ -739,7 +739,7 @@ void CMenu::Draw()
 				case RAGE_ANTIAIM_MOVE:
 				{
 					const char* aa_move_pitch[] = { "None", "Down", "Up", "Fake down", "Fake up", "Jitter", "Fake jitter" };
-					const char* aa_move_yaw[] = { "None", "Backwards", "Local view", "Gait sideways 120°" };
+					const char* aa_move_yaw[] = { "None", "Backwards", "Local view", "Gait sideways 120ï¿½" };
 
 					m_pGui->SetID("##rage_antiaim_move");
 					m_pGui->Combo(&cvars::ragebot.aa_move_pitch, "Pitch", aa_move_pitch, IM_ARRAYSIZE(aa_move_pitch));
@@ -1359,7 +1359,7 @@ void CMenu::Draw()
 			m_pGui->Checkbox(&cvars::misc.kb_enabled, "Enabled");
 			m_pGui->Key(&cvars::misc.kb_key, "Key");
 			m_pGui->Checkbox(&cvars::misc.kb_friendly_fire, "Friendly fire");
-			m_pGui->Slider(&cvars::misc.kb_fov, "Maximum FOV", 0.f, 180.f, "%.0f°", 1.f);
+			m_pGui->Slider(&cvars::misc.kb_fov, "Maximum FOV", 0.f, 180.f, "%.0fï¿½", 1.f);
 			m_pGui->Combo(&cvars::misc.kb_attack_type, "Attack type", kb_attack_type, IM_ARRAYSIZE(kb_attack_type));
 			m_pGui->Slider(&cvars::misc.kb_swing_distance, "Swing distance", 16.f, 64.f, "%.0f units", 1.f);
 			m_pGui->Slider(&cvars::misc.kb_stab_distance, "Stab distance", 16.f, 64.f, "%.0f units", 1.f);
@@ -1679,7 +1679,7 @@ void CMenu::Draw()
 	//	//m_pGui->PushCondition(cvars::misc.kb_enabled);
 	//	//m_pGui->Key(&cvars::misc.kb_key, "Key", true);
 	//	m_pGui->Checkbox(&cvars::misc.kb_friendly_fire, "Friendly fire");
-	//	m_pGui->Slider(&cvars::misc.kb_fov, "Maximum FOV", 0.f, 180.f, u8"%.1f°", 1.f);
+	//	m_pGui->Slider(&cvars::misc.kb_fov, "Maximum FOV", 0.f, 180.f, u8"%.1fï¿½", 1.f);
 	//	//m_pGui->PushCondition(cvars::misc.kb_fov > 0.f);
 	//	m_pGui->Combo(&cvars::misc.kb_attack_type, "Attack type", kb_attack_type, IM_ARRAYSIZE(kb_attack_type));
 	//	m_pGui->Combo(&cvars::misc.kb_aim_type, "Aim type", kb_aim_type, IM_ARRAYSIZE(kb_aim_type));
@@ -1690,7 +1690,7 @@ void CMenu::Draw()
 	//	m_pGui->Slider(&cvars::misc.kb_swing_distance, "Swing distance", 16.f, 64.f, "%.1f units", 1.f);
 	//	m_pGui->Slider(&cvars::misc.kb_stab_distance, "Stab distance", 16.f, 64.f, "%.1f units", 1.f);
 	//	//m_pGui->PushTextColor(ImVec4(1.00f, 1.00f, 0.00f, GImGui->Style.Colors[ImGuiCol_Text].w));
-	//	m_pGui->Checkbox(&cvars::misc.kb_position_adjustment, "Position adjustment", u8"ENG: Exploit allowing you to shoot at multiple positions of the target.\nRUS: Ýêñïëîèò ïîçâîëÿþùèé ñòðåëÿòü â íåñêîëüêî ïîçèöèé öåëè.");
+	//	m_pGui->Checkbox(&cvars::misc.kb_position_adjustment, "Position adjustment", u8"ENG: Exploit allowing you to shoot at multiple positions of the target.\nRUS: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.");
 	//	//m_pGui->PopTextColor();
 	//	m_pGui->Checkbox(&cvars::misc.kb_dont_shoot_spectators, "Don't shoot spectators");
 	//	m_pGui->Checkbox(&cvars::misc.kb_dont_shoot_in_back, "Don't shoot in back");
@@ -1882,7 +1882,7 @@ void CMenu::Draw()
 	//	}
 
 	//	ImGui::PushFont(g_pFontList[ProggyClean_13px]);
-	//	ImGui::InputTextMultiline("##ñontents", buf, sizeof(buf), ImVec2(multiline_width, multiline_height), ImGuiInputTextFlags_AllowTabInput);
+	//	ImGui::InputTextMultiline("##ï¿½ontents", buf, sizeof(buf), ImVec2(multiline_width, multiline_height), ImGuiInputTextFlags_AllowTabInput);
 	//	ImGui::PopFont();
 
 	//	ImGui::Spacing_HPPv6();

@@ -29,7 +29,6 @@ private:
 	std::unique_ptr<CMenuHotkeys> m_pHotkeys;
 	std::unique_ptr<CMenuSettingsList> m_pSettingsList;
 	std::unique_ptr<CMenuFadeBg> m_pFadeBg;
-	std::unique_ptr<CMenuThemes> m_pThemes;
 
 	bool m_bIsOpened;
 

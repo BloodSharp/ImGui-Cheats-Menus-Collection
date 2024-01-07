@@ -1,6 +1,6 @@
 #include "IGCMC-Precompiled.h"
 
-CRenderer::CRenderer()
+CRenderer::CRenderer() : m_pThemes(std::make_unique<CMenuThemes>())
 {
 	/*
 	if (!ImGui::CreateContext())
@@ -59,6 +59,7 @@ static void EndScene()
 
 void CRenderer::RenderScene(void(*RenderFn)(void*), void* hDeviceContext)
 {
+	this->m_pThemes->SetDefaultDarkTheme();
 	BeginScene();
 
 	RenderFn(hDeviceContext);
@@ -178,6 +179,7 @@ void CRenderer::RenderScene(void(*RenderFn)(void*), void* hDeviceContext)
 	*/
 
 	EndScene();
+	this->m_pThemes->UnsetDefaultDarkTheme();
 }
 
 std::unique_ptr<CRenderer> g_pRenderer;
